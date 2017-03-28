@@ -12,3 +12,4 @@ require(LIBWWWDIR . '/header.php');
 
 <?php
 require(LIBWWWDIR . '/footer.php');
+?>
