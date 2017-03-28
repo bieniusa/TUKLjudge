@@ -8,7 +8,7 @@
  */
 
 require('init.php');
-$title="TUMjudge";
+$title="TUKLjudge";
 
 if(DOMSERVER_REPLICATION === 'master') {
   header('Location: register.php');
@@ -173,14 +173,12 @@ $compile_command['POSIX shell'] = 'sh "$MAINSOURCE"';
 
 ?>
 
-<h1>Welcome to TUMjudge!</h1>
+<h1>Welcome to TUKLjudge!</h1>
 
-<p>This page contains basic information regarding this TUMjudge. If you never worked with the TUMjudge before we recommend you to read this manual first.</p>
+<p>This page contains basic information regarding this TUKLjudge. If you never worked with it before, we recommend you to read this manual first.</p>
 
 <h2>Login</h2>
-The TUMjudge requires you to login prior to submitting work. Your username and password is the same as in the <q>Rechnerhalle</q>, the login works via the LDAP protocol. 
-
-Reminder: The <q>Rechnerhalle</q> username is the part before the @ in your @in.tum.de email address.This also means that we are not responsible for your password. If you lose it, please contact the <a href="http://www.in.tum.de/rbg.html" target="_blank">RBG</a>, not us. If you have several @in.tum.de addresses any of them will work. However, make sure that you use the same address for registration and login.
+The TUKLjudge requires you to login prior to submitting work. You have received your username and password at the beginning of the course.
 
 <h2>Judge</h2>
 We use a fork of the official DOMjudge system that is also used in contests like the ICPC. Some impressions of the systems are given in the following images.
@@ -195,7 +193,7 @@ We use a fork of the official DOMjudge system that is also used in contests like
 <p>Most problems that you will find here follow an overall structure. They contain:</p>
 
 <ul>
-  <li>A Name,
+  <li>A name,
   <li>a story that describes the problem in informal terms,</li>
   <li>a more precise description of the input format,</li>
   <li>a more precise description of the output format,</li>
@@ -206,7 +204,7 @@ We use a fork of the official DOMjudge system that is also used in contests like
 <h2>Submitting Solutions</h2>
 
 <p>
-Solutions can be submitted from your dashboard which is available under <q>home</q> once you are logged in. In the left column click <b>Select file...</b> to select the file(s) for submission. TUMjudge will try to determine the problem and language from the base and extension of the filename respectively. If the automatic recognition fails select the appropriate values using the dropdown menues below the file selection. Filenames must start with an alphanumerical character and may contain only alphanumerical characters, - and _.
+Solutions can be submitted from your dashboard which is available under <q>home</q> once you are logged in. In the left column click <b>Select file...</b> to select the file(s) for submission. TUKLjudge will try to determine the problem and language from the base and extension of the filename respectively. If the automatic recognition fails, select the appropriate values using the dropdown menues below the file selection. Filenames must start with an alphanumerical character and may contain only alphanumerical characters, - and _.
 </p>
 
 <p>
@@ -214,7 +212,7 @@ After you hit the submit button and confirm the submission, you will be redirect
 </p>
 
 <p>
-Please note that you have to submit the source code of your program, <i>not a compiled program or the output of your program</i>. Your submission will be judged fully automated. Keep in mind that the sample data you receive in the problem statement is merely a fraction of the complete set of sample cases which is kept secret. This means that you have to think about special/corner cases that could be contained in the secret inputs, for example a graph without any edges or containing multiedges.
+Please note that you have to submit the source code of your program, <i>not a compiled program or the output of your program</i>. Your submission will be judged fully automated. Keep in mind that the sample data you receive in the problem statement is merely a fraction of the complete set of sample cases which is kept secret. This means that you have to think about special/corner cases that could be contained in the secret inputs!
 </p>
 
 <h2>Viewing the results of submissions</h2>
@@ -229,7 +227,7 @@ The left column of your dashboard shows an overview of your submissions. It cont
 </p>
 
 <p>
-To view the public scoreboard use the link <q>scoreboard</q> in the top menu. It displays the scores of all participants that agreed to have their results publicly available. The scoreboard contains one column for each problem. The colors of the cells indicate the following:
+To view the public scoreboard use the link <q>scoreboard</q> in the top menu. The scoreboard contains one column for each problem. The colors of the cells indicate the following:
 </p>
 
 <ul>
@@ -240,11 +238,7 @@ To view the public scoreboard use the link <q>scoreboard</q> in the top menu. It
 </ul>
 
 <p>
-Each cell contains the number of submissions for this problem and if the problem was solved, the time of the first correct submission in minutes since the problem set was handed out. The scoreboard is ordered by the number of problems solved, ties are broken using a score that is computed as follows: For each solved problem, you receive a penalty score. This score is equal to the time of the first correct submission in minutes since the problem set was handed out plus <?php echo $config['penalty_time'];?> for each failed attempt. The total penalty score is the sum of penalty scores for all solved problems. Both the total number of correct submissions and the current total penalty score can be found in the colume <q>Score</q>.
-</p>
-
-<p>
-The score board is visible to everyone, if you want your account NOT to be visible on the scoreboard, please pick <q>invisible</q> during the registration.
+Each cell contains the number of submissions for this problem and if the problem was solved, the time of the first correct submission in minutes since the problem set was handed out. The scoreboard is ordered by the number of problems solved. Ties are broken using a score that is computed as follows: For each solved problem, you receive a penalty score. This score is equal to the time of the first correct submission in minutes since the problem set was handed out plus <?php echo $config['penalty_time'];?> for each failed attempt. The total penalty score is the sum of penalty scores for all solved problems. Both the total number of correct submissions and the current total penalty score can be found in the colume <q>Score</q>.
 </p>
 
 <h2>Clarifications</h2>
@@ -321,14 +315,14 @@ After your program has compiled successfully it will be executed and its output 
 
 <h3>Possible Results</h3>
 <p>
-Once you upload your code to our server, there are several possible outcomes that TUMjudge could tell you.
+Once you upload your code to our server, there are several possible outcomes.
 </p>
 
 <ul class="indent_list">
   <li><b>CORRECT</b> This is the best case. You have solved the problem correctly.</li>
   <li><b>TIMELIMIT</b> There is at least one of our testcases where your program takes too long to produce an answer.</li>
   <li><b>WRONG ANSWER</b> There is at least one of our testcases where your program yields a wrong solution.</li>
-  <li><b>COMPILER-ERROR</b> TUMjudge could not compile your program. Make sure you chose the right language and all your includes are there. Here you can also see the exact error message.</li>
+  <li><b>COMPILER-ERROR</b> The system could not compile your program. Make sure you chose the right language and all your includes are there. Here you can also see the exact error message.</li>
   <li><b>NO-OUTPUT</b> Your program compiles, but yields no output. Make sure you write the solution to <q>standard out</q>.</li>
   <li><b>TOO-LATE</b> You submitted your program after the contest was already over. Bummer.</li>
 </ul>
@@ -363,3 +357,4 @@ Do not fool with the system. Do not try to do anything you are obviously not int
 
 <?php
 require(LIBWWWDIR . '/footer.php');
+?>
