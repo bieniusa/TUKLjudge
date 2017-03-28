@@ -11,5 +11,7 @@ require(LIBWWWDIR . '/header.php');
 <a href="mailto:bieniusa@cs.uni-kl.de">bieniusa@cs.uni-kl.de</a>
 
 TUKLjudge is an clone of <a href="https://github.com/ICPC-TUM/TUMjudge">TUMjudge</a>.
+Many thanks to their team for this great work!
+
 <?php
 require(LIBWWWDIR . '/footer.php');
