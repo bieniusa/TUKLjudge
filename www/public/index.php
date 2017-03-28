@@ -357,4 +357,4 @@ Do not fool with the system. Do not try to do anything you are obviously not int
 
 <?php
 require(LIBWWWDIR . '/footer.php');
-?>
+
