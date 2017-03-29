@@ -91,13 +91,15 @@ if ( IS_JURY ) {
         <span class="icon-bar"></span>
       </button>
     </div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
       <?php
         /* NOTE: here a local menu.php is included
          *       both jury and team have their own menu.php
          */
         if ( $menu ) include("menu.php");
       ?>
-      </ul>          
+      </ul>
     </div>
   </div>
 </nav>
