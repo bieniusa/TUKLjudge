@@ -35,15 +35,11 @@ require(LIBWWWDIR . '/header.php');
     <input type="password" class="form-control" id="passwd" name="passwd" value="" placeholder="Password">
 </div>
 
-<div class="form-group" style="float:right; padding-top:0.5em;">
-    <label style="font-size:11px;"><a href='/main/' style='color:#ffffff;'>Register new Account</a></label>
-</div>
-
 <button type="submit" class="btn btn-default">Login</button>
-    
+
 </form>
 </div>
-<?php } 
+<?php }
 
 global $DB;
 
@@ -57,7 +53,7 @@ $compile_command = array();
 $version = array();
 $sample_code = array();
 
-// JAVA 
+// JAVA
 $compile_command['Java'] = 'javac -encoding UTF-8 -d . "$@" 2> "$TMPFILE" <br />';
 $compile_command['Java'] .= sprintf("java -client -Xss8m -Xmx%dk -DONLINE_JUDGE=1 -DDOMJUDGE=1 '\$MAINCLASS'", $config['memory_limit']-350000);
 $version['Java'] = 'java version "1.8.0_91"<br />Java(TM) SE Runtime Environment (build 1.8.0_91-b14)<br />Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)';
@@ -67,12 +63,12 @@ public class HelloWorld {
 	public static void main(String[] args) {
 		// create scanner object
 		Scanner s = new Scanner(System.in);
-		
+
 		// read several types of input
 		int i = s.nextInt();
 		boolean b = s.nextBoolean();
 		String st = s.next();
-		
+
 		// output: use the possibility you like more
 		System.out.println("Case #"+i+": "+st);
 		System.out.format("Case %d#: %s\n", i, s);
@@ -80,14 +76,14 @@ public class HelloWorld {
 }';
 
 // C
-$compile_command['C'] = 'gcc -x c -Wall -O2 -static -pipe -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@" -lm'; 
-  
+$compile_command['C'] = 'gcc -x c -Wall -O2 -static -pipe -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@" -lm';
+
 // C#
 $compile_command['C#'] = 'gmcs -o+ -d:ONLINE_JUDGE,DOMJUDGE -out:"$DESTCLI" "$@"
 mono "$DESTCLI"';
-  
+
 // C++
-$compile_command['C++'] = 'g++ -Wall -std=c++11 -O2 -static -pipe -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@"'; 
+$compile_command['C++'] = 'g++ -Wall -std=c++11 -O2 -static -pipe -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@"';
 $version['C++'] = 'Target: x86_64-linux-gnu<br />gcc version 4.9.2 (Debian 4.9.2-10)';
 $sample_code['C++'] = '#include <iostream>
 #include <stdio.h>
@@ -110,10 +106,10 @@ int main() {
 }';
 
 // Lua
-$compile_command['Lua'] = 'lua "$MAINSOURCE"'; 
-  
+$compile_command['Lua'] = 'lua "$MAINSOURCE"';
+
 // Octave
-$compile_command['Octave'] = 'octave --silent --no-gui --no-history --no-init-file --no-init-path --no-line-editing --no-site-file --no-window-system --norc "$MAINSOURCE"'; 
+$compile_command['Octave'] = 'octave --silent --no-gui --no-history --no-init-file --no-init-path --no-line-editing --no-site-file --no-window-system --norc "$MAINSOURCE"';
 $version['Octave'] = 'GNU Octave, version 3.8.2';
 $sample_code['Octave'] = '#read input with scanf or input
 i = scanf("%d", 1);
@@ -124,31 +120,31 @@ printf("Case #%d: %d\n", i, j+2);
 disp(i*j);';
 
 // Ada
-$compile_command['Ada'] = 'gnatmake -static -o "$DEST" "$@" -bargs -static'; 
-  
+$compile_command['Ada'] = 'gnatmake -static -o "$DEST" "$@" -bargs -static';
+
 // AWK
-$compile_command['AWK'] = 'awk -v ONLINE_JUDGE=1 -v DOMJUDGE=1 -f "$MAINSOURCE"'; 
+$compile_command['AWK'] = 'awk -v ONLINE_JUDGE=1 -v DOMJUDGE=1 -f "$MAINSOURCE"';
 
 // Bash Shell
-$compile_command['Bash shell'] = 'bash "$MAINSOURCE"'; 
+$compile_command['Bash shell'] = 'bash "$MAINSOURCE"';
 
 //Fortran
-$compile_command['Fortran'] = 'gfortran -static -Wall -O2 -cpp -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@"'; 
+$compile_command['Fortran'] = 'gfortran -static -Wall -O2 -cpp -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@"';
 
 // Haskell
-$compile_command['Haskell'] = 'ghc -Wall -Wwarn -O -static -optl-static -optl-pthread -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@"'; 
+$compile_command['Haskell'] = 'ghc -Wall -Wwarn -O -static -optl-static -optl-pthread -DONLINE_JUDGE -DDOMJUDGE -o "$DEST" "$@"';
 
 // Pascal
-$compile_command['Pascal'] = 'fpc -viwn -O2 -Sg -XS -dONLINE_JUDGE -dDOMJUDGE -o"$DEST" "$MAINSOURCE"'; 
-  
+$compile_command['Pascal'] = 'fpc -viwn -O2 -Sg -XS -dONLINE_JUDGE -dDOMJUDGE -o"$DEST" "$MAINSOURCE"';
+
 // Perl
-$compile_command['Perl'] = 'perl "$MAINSOURCE"'; 
-  
+$compile_command['Perl'] = 'perl "$MAINSOURCE"';
+
 // Prolog
-$compile_command['Prolog'] = 'swipl --goal=main,halt --stand_alone=true -o "$DEST" -c "$MAINSOURCE"'; 
+$compile_command['Prolog'] = 'swipl --goal=main,halt --stand_alone=true -o "$DEST" -c "$MAINSOURCE"';
 
 //Python 2
-$compile_command['Python 2'] = 'pypy "$MAINSOURCE"'; 
+$compile_command['Python 2'] = 'pypy "$MAINSOURCE"';
 $version['Python 2'] = 'Python 2.7.8 (2.4.0+dfsg-3, Dec 20 2014, 13:30:46)
 [PyPy 2.4.0 with GCC 4.9.2]';
 $sample_code['Python 2'] = '#read input
@@ -159,17 +155,17 @@ string1=raw_input()
 print "Case %d: %s"%(i,string1)';
 
 // Python 3
-$compile_command['Python 3'] = 'python3 "$MAINSOURCE"'; 
+$compile_command['Python 3'] = 'python3 "$MAINSOURCE"';
 
 // Ruby
-$compile_command['Ruby'] = 'ruby "$MAINSOURCE"'; 
+$compile_command['Ruby'] = 'ruby "$MAINSOURCE"';
 
 // Scala
 $compile_command['Scala'] = 'MAINCLASS="$(basename "$MAINSOURCE" .scala)
-scala \'$MAINCLASS\''; 
-  
+scala \'$MAINCLASS\'';
+
 // POSIX Shell
-$compile_command['POSIX shell'] = 'sh "$MAINSOURCE"'; 
+$compile_command['POSIX shell'] = 'sh "$MAINSOURCE"';
 
 ?>
 
@@ -222,7 +218,7 @@ The top of the page shows your current position in the scoreboard as well as whi
 </p>
 
 <p>
-The left column of your dashboard shows an overview of your submissions. It contains the submission time, programming language, problem and status of the submission. 
+The left column of your dashboard shows an overview of your submissions. It contains the submission time, programming language, problem and status of the submission.
 <?php if ($config['show_sample_output'] == 1) {echo 'To view the output your submission on the sample input from the problem set click on your submission.';} ?>
 </p>
 
@@ -254,7 +250,7 @@ In order to submit new clarifications click the button <q>request clarification<
 <h2>Submissions</h2>
 <h3>Programming Languages</h3>
 <p>
-You will be allowed to submit solutions in <?php 
+You will be allowed to submit solutions in <?php
 
 $i = 1;
 foreach($data_lang as $lang) {
@@ -282,10 +278,10 @@ Using a different compiler or operating system than the judging system should no
 </p>
 
 <ul>
-<?php 
+<?php
   foreach($data_lang as $lang) {
     printf('<li>%s<br /> <pre>%s: </pre></li>', $lang['name'], htmlentities($compile_command[$lang['name']]));
-  } 
+  }
 ?>
 </ul>
 
@@ -342,7 +338,7 @@ In order to keep the judging system stable, prevent abuse and give everyone clea
   <li><b>Memory</b>: During execution of your program, there are <?php echo $config['memory_limit']/(1024*1024); ?>GB of memory available. This is the total amount of memory (including program code, statically and dynamically defined variables, stack, Java VM (up to 0.35GB), ...)! If your program tries to use more memory, it will abort, resulting in a run-error.</li>
 
   <li><b>Number of processes</b>: You are not supposed to create multiple processes (threads). This would be to no avail anyway, since your program has only 1 processor fully at its disposal. To increase stability of the judging system, there is a maximum of <?php echo $config['process_limit'];?> processes that can be run simultaneously (including processes that started your program). People who have never programmed with multiple processes (or have never heard of <q>threads</q>) do not have to worry: a normal program runs in one process.</li>
-  
+
 </ul>
 
 <p>
@@ -357,4 +353,3 @@ Do not fool with the system. Do not try to do anything you are obviously not int
 
 <?php
 require(LIBWWWDIR . '/footer.php');
-
