@@ -1,0 +1,41 @@
+version: '2'
+services:
+  domserver:
+    build:
+      context: .
+      dockerfile: ./domserver/Dockerfile
+    environment:
+      - DOMJUDGE_DB_HOST=mysql
+      - DOMJUDGE_DB_USER=domjudge
+      - DOMJUDGE_DB_NAME=domjudge
+      - DOMJUDGE_DB_PASSWORD=domjudge
+      - DOMJUDGE_DB_ROOT_PASSWORD=sol-Shoot-Forte-thaw-Gao
+      - TIMEZONE=Europe/Berlin
+    links:
+      - mysql
+    ports:
+      - "4321:80"
+    volumes:
+      - domjudge_submissions:/opt/domjudge/domserver/submissions
+    restart: always
+
+  judgehost:
+    build:
+      context: .
+      dockerfile: judgehost/Dockerfile
+    links:
+      - domserver
+    environment:
+      - DOMSERVER_HOST=http://domserver/domjudge/api/
+      - DOMSERVER_USER=judgehost
+      - DOMSERVER_PASSWORD=dhJ(s6j56Jbtv;wP
+    privileged: true
+    restart: always
+
+  mysql:
+    image: mysql:5
+    environment:
+      - MYSQL_ROOT_PASSWORD=sol-Shoot-Forte-thaw-Gao
+
+volumes:
+  domjudge_submissions: {}
