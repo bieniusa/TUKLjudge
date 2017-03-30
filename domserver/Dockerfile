@@ -27,6 +27,7 @@ EXPOSE 80
 
 COPY domserver/start.sh /usr/local/bin/start.sh
 COPY domserver/apache2-foreground.sh /usr/local/bin/apache2-foreground.sh
+COPY domserver/php.ini /etc/php5/apache2/php.ini
 
 ENTRYPOINT ["start.sh"]
 CMD ["apache2-foreground.sh"]

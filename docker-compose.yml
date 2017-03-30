@@ -36,6 +36,9 @@ services:
     image: mysql:5
     environment:
       - MYSQL_ROOT_PASSWORD=sol-Shoot-Forte-thaw-Gao
+    volumes:
+      - ./domserver/mysql_config:/etc/mysql/conf.d
+      - ./backups:/backups
 
 volumes:
   domjudge_submissions: {}

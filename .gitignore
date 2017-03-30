@@ -10,3 +10,4 @@
 /cov-int
 /domjudge-scan.tar.xz
 *.o
+/backups
