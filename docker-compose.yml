@@ -23,8 +23,6 @@ services:
     build:
       context: .
       dockerfile: judgehost/Dockerfile
-    links:
-      - domserver
     environment:
       - DOMSERVER_HOST=http://domserver/domjudge/api/
       - DOMSERVER_USER=judgehost
