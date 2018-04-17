@@ -11,14 +11,14 @@ export BUILDDEPS="\
 make curl autoconf automake patch git"
 export RUNDEPS="debootstrap unzip php7.0-cli php7.0-curl php7.0-json procps sudo \
 gcc g++ openjdk-8-jre-headless openjdk-8-jdk-headless \
-fp-compiler ghc ca-certificates libcgroup-dev python python3"
+fp-compiler ghc ca-certificates libcgroup-dev python python3 cgroup-tools"
 apt-get update
 apt-get install -y --no-install-recommends $BUILDDEPS $RUNDEPS
 useradd -d / -s /bin/false domjudge
 mkdir -p /src && cd /src
 git clone https://github.com/bieniusa/TUKLjudge.git
 cd TUKLjudge
-sed -i 's/openjdk-7-jre-headless/openjdk-8-jre-headless/g' misc-tools/dj_make_chroot.in
+sed -i 's/openjdk-7-jre-headless/openjdk-8-jre-headless python python3/g' misc-tools/dj_make_chroot.in
 make configure && ./configure --with-domjudge-user=domjudge --disable-submitclient && make judgehost && make install-judgehost
 cd /opt/domjudge/judgehost
 useradd -d / -g nogroup -s /bin/false domjudge-run
